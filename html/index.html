@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ox_lib_secure</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- حاوية الإشعارات الرئيسية -->
+    <div id="notifications-container" class="notifications-container">
+        <!-- الإشعارات تُضاف هنا ديناميكيًا -->
+    </div>
+
+    <!-- حاوية الإشعارات المركزية (للأخطاء الحرجة) -->
+    <div id="critical-container" class="critical-container hidden">
+        <div class="critical-overlay"></div>
+        <div class="critical-content">
+            <div class="critical-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                    <line x1="12" y1="9" x2="12" y2="13"/>
+                    <line x1="12" y1="17" x2="12.01" y2="17"/>
+                </svg>
+            </div>
+            <h2 id="critical-title"></h2>
+            <p id="critical-body"></p>
+            <button id="critical-close" class="critical-btn">حسنًا</button>
+        </div>
+    </div>
+
+    <!-- حاوية الواجهة الرئيسية (للتطوير المستقبلي) -->
+    <div id="main-ui" class="main-ui hidden">
+        <div class="ui-header">
+            <h1>ox_lib_secure</h1>
+            <button id="ui-close" class="ui-close-btn">&times;</button>
+        </div>
+        <div class="ui-body">
+            <!-- محتوى الواجهة الرئيسية -->
+        </div>
+    </div>
+
+    <!-- قالب الإشعار (يُنسخ لكل إشعار جديد) -->
+    <template id="notification-template">
+        <div class="notification">
+            <div class="notification-progress"></div>
+            <div class="notification-icon"></div>
+            <div class="notification-content">
+                <div class="notification-title"></div>
+                <div class="notification-body"></div>
+            </div>
+            <button class="notification-close">&times;</button>
+        </div>
+    </template>
+
+    <!-- قالب أيقونات الإشعارات -->
+    <template id="icon-info">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="16" x2="12" y2="12"/>
+            <line x1="12" y1="8" x2="12.01" y2="8"/>
+        </svg>
+    </template>
+
+    <template id="icon-success">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+            <polyline points="22 4 12 14.01 9 11.01"/>
+        </svg>
+    </template>
+
+    <template id="icon-warning">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+            <line x1="12" y1="9" x2="12" y2="13"/>
+            <line x1="12" y1="17" x2="12.01" y2="17"/>
+        </svg>
+    </template>
+
+    <template id="icon-error">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="15" y1="9" x2="9" y2="15"/>
+            <line x1="9" y1="9" x2="15" y2="15"/>
+        </svg>
+    </template>
+
+    <template id="icon-critical">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"/>
+            <line x1="12" y1="8" x2="12" y2="12"/>
+            <line x1="12" y1="16" x2="12.01" y2="16"/>
+        </svg>
+    </template>
+
+    <!-- Scripts -->
+    <script src="js/sounds.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
